@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="leetcode,">
 
 
 
@@ -86,16 +86,18 @@
 
 
 
-<meta name="description" content="一个自学python的菜鸡">
-<meta property="og:type" content="website">
-<meta property="og:title" content="神秘の博客">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta name="description" content="【leetcode 540】 有序数组中的单一元素给定一个只包含整数的有序数组，每个元素都会出现两次，唯有一个数只会出现一次，找出这个数。">
+<meta name="keywords" content="leetcode">
+<meta property="og:type" content="article">
+<meta property="og:title" content="有序数组中的单一元素">
+<meta property="og:url" content="http://yoursite.com/2018/11/16/LeetCode 540 Single Element in a Sorted Array/index.html">
 <meta property="og:site_name" content="神秘の博客">
-<meta property="og:description" content="一个自学python的菜鸡">
+<meta property="og:description" content="【leetcode 540】 有序数组中的单一元素给定一个只包含整数的有序数组，每个元素都会出现两次，唯有一个数只会出现一次，找出这个数。">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-11-16T09:34:30.117Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="神秘の博客">
-<meta name="twitter:description" content="一个自学python的菜鸡">
+<meta name="twitter:title" content="有序数组中的单一元素">
+<meta name="twitter:description" content="【leetcode 540】 有序数组中的单一元素给定一个只包含整数的有序数组，每个元素都会出现两次，唯有一个数只会出现一次，找出这个数。">
 
 
 
@@ -125,13 +127,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/">
+  <link rel="canonical" href="http://yoursite.com/2018/11/16/LeetCode 540 Single Element in a Sorted Array/">
 
 
 
 
 
-  <title>神秘の博客</title>
+  <title>有序数组中的单一元素 | 神秘の博客</title>
   
 
 
@@ -150,8 +152,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
@@ -254,9 +255,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -286,9 +287,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/11/16/LeetCode 540 Single Element in a Sorted Array/" itemprop="url">有序数组中的单一元素</a></h1>
+          <h1 class="post-title" itemprop="name headline">有序数组中的单一元素</h1>
         
 
         <div class="post-meta">
@@ -338,16 +337,17 @@
       
 
       
-        
-          <h2 id="【leetcode-540】-有序数组中的单一元素"><a href="#【leetcode-540】-有序数组中的单一元素" class="headerlink" title="【leetcode 540】 有序数组中的单一元素"></a>【leetcode 540】 有序数组中的单一元素</h2><p>给定一个只包含整数的有序数组，每个元素都会出现两次，唯有一个数只会出现一次，找出这个数。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/11/16/LeetCode 540 Single Element in a Sorted Array/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
+        <h2 id="【leetcode-540】-有序数组中的单一元素"><a href="#【leetcode-540】-有序数组中的单一元素" class="headerlink" title="【leetcode 540】 有序数组中的单一元素"></a>【leetcode 540】 有序数组中的单一元素</h2><p>给定一个只包含整数的有序数组，每个元素都会出现两次，唯有一个数只会出现一次，找出这个数。</p>
+<a id="more"></a>
+<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><p>输入: [1,1,2,3,3,4,4,8,8]<br>输出: 2</p>
+<p>输入: [3,3,7,7,10,11,11]<br>输出: 10</p>
+<h3 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h3><p>您的方案应该在 O(log n)时间复杂度和 O(1)空间复杂度中运行。</p>
+<h2 id="解决方法"><a href="#解决方法" class="headerlink" title="/解决方法/"></a>/解决方法/</h2><h3 id="比较"><a href="#比较" class="headerlink" title="比较"></a>比较</h3><p>这道题目简单的一点在于，这个数组本身已经是一个有序的数组了，那么我们就可以直接遍历的时候对元素进行比较。<br>因为元素是成对出现的，我们只要比较i和i+1位置的数值是否相同即可。<br>这里要注意的一点是for..in..循环的条件，我是用的range(0,n,2)要注意range函数的步长。<br>如果步长还是1的话即range(n)结果就错了，元素是成对出现，你这样写的话<br>eg. [1,1,2,3,3]<br>    期望值为2<br>    输出为1<br>因为步长为1，所有的元素都会跟他后面的元素进行比较，但其实我们只需要比较奇数位的就好了。<br>这里我还先对i的大小进行了一个判断，考虑到结果可能会是数组的最后一个数，那么取nums[i+1]就会出错了。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">class Solution:</span><br><span class="line">    def singleNonDuplicate(self, nums):</span><br><span class="line">        <span class="string">""</span><span class="string">"</span></span><br><span class="line"><span class="string">        :type nums: List[int]</span></span><br><span class="line"><span class="string">        :rtype: int</span></span><br><span class="line"><span class="string">        "</span><span class="string">""</span></span><br><span class="line">        </span><br><span class="line">        <span class="comment">#比较</span></span><br><span class="line">        n = len(nums)</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(0,n,2):</span><br><span class="line">            <span class="keyword">if</span> i==(n-1):</span><br><span class="line">                <span class="built_in">return</span> nums[i]</span><br><span class="line">            <span class="keyword">elif</span> nums[i]!=nums[i+1]:</span><br><span class="line">                <span class="built_in">return</span> nums[i]</span><br></pre></td></tr></table></figure>
+<h3 id="异或运算"><a href="#异或运算" class="headerlink" title="异或运算"></a>异或运算</h3><p>非常厉害的方法，我也是听同学讲的，刚开始不懂为什么要用异或运算，后面是不理解异或运算在这道题目的实现机制。<br>简单说一下就是，0和一个数字异或，得到的结果还是这个数字；两个相同的数字异或，结果是0.<br>所以这道题目简单了，直接一个遍历异或运算下去，最后得到的结果就是要求出的那个数字。<br>是不是不太懂为什么一堆数字异或下去可以直接得到结果？<br>我后面又仔细想了想，来说下我的理解吧:<br>异或运算是对一个数字二进制进行运算，我们都知道二进制的表达，只有两种，0和1，异或运算如下<br>0^0 -&gt;0<br>0^1 -&gt;1<br>1^0 -&gt;1<br>1^1 -&gt;0<br>0跟一个数字异或是不会影响到那个位置原本的数字的，只有1会改变那个位置原本的数字，所以我们只要考虑1就好了。<br>而1是什么，1是一个系数，比如5这个数字二进制101，就是1x2(2) + 0x2(1) + 1x2(0)  【2(2)这里表示2的2次方，其他同理】<br>成对出现的数字，他们二进制每个位置上的’1’个数也是成对出现的，所以异或下来，剩下的位置上的’1’都是那个落单数的系数，所以结果就是要求的那个数字。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">class Solution:</span><br><span class="line">    def singleNonDuplicate(self, nums):</span><br><span class="line">        <span class="string">""</span><span class="string">"</span></span><br><span class="line"><span class="string">        :type nums: List[int]</span></span><br><span class="line"><span class="string">        :rtype: int</span></span><br><span class="line"><span class="string">        "</span><span class="string">""</span></span><br><span class="line">        </span><br><span class="line">        <span class="comment">#异或</span></span><br><span class="line">        result = 0</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> nums:</span><br><span class="line">            result = result ^ i</span><br><span class="line">        <span class="built_in">return</span> result</span><br></pre></td></tr></table></figure>
+<h3 id="其他要说的话"><a href="#其他要说的话" class="headerlink" title="其他要说的话"></a>其他要说的话</h3><p>这两种方法对这道题时间复杂度都是n，但是如果，给出的数组是无序的，那么明显就是第二种方法更胜一筹了。<br>对于无序的数组，除了异或，你当然也可以先对无序数组进行排序，这样就把题目转换成了这道题目，然后进行比较，但是这样你要考虑到排序操作带来的时间复杂度。还有其他方法，比如新建一个列表，对原列表进行扫描，每次取出一个数字，判断他是否在新列表里出现了，出现的话，就删除新列表的数字，没有的话就把他加入新列表，这样，最后新列表里剩的数字就是单个的数字了，这种就很麻烦了。</p>
+
       
     </div>
     
@@ -362,262 +362,36 @@
 
     <footer class="post-footer">
       
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/13/LeetCode 19 Remove Nth Node From End of List/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="SparkleMonkey">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="神秘の博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/11/13/LeetCode 19 Remove Nth Node From End of List/" itemprop="url">删除链表的倒数第N个节点</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-13T14:36:16+08:00">
-                2018-11-13
-              </time>
-            
-
-            
-
-            
-          </span>
-
+        <div class="post-tags">
           
-
+            <a href="/tags/leetcode/" rel="tag"><i class="fa fa-tag"></i> leetcode</a>
           
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
         </div>
-      </header>
-    
+      
 
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
+      
       
       
 
       
-        
-          <h2 id="【leetcode-19】-删除链表的倒数第N个节点"><a href="#【leetcode-19】-删除链表的倒数第N个节点" class="headerlink" title="【leetcode 19】 删除链表的倒数第N个节点"></a>【leetcode 19】 删除链表的倒数第N个节点</h2><p>给定一个链表，删除链表的倒数第 n 个节点，并且返回链表的头结点。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/11/13/LeetCode 19 Remove Nth Node From End of List/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/11/13/LeetCode 19 Remove Nth Node From End of List/" rel="next" title="删除链表的倒数第N个节点">
+                <i class="fa fa-chevron-left"></i> 删除链表的倒数第N个节点
+              </a>
+            
           </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
 
-    
+          <span class="post-nav-divider"></span>
 
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/13/hello-world/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="SparkleMonkey">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="神秘の博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/11/13/hello-world/" itemprop="url">Hello World</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+          <div class="post-nav-prev post-nav-item">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-13T11:43:13+08:00">
-                2018-11-13
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/11/13/hello-world/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -627,10 +401,11 @@
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -638,6 +413,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -658,8 +437,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -722,6 +510,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#【leetcode-540】-有序数组中的单一元素"><span class="nav-text">【leetcode 540】 有序数组中的单一元素</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#示例"><span class="nav-text">示例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#注意"><span class="nav-text">注意</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解决方法"><span class="nav-text">/解决方法/</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#比较"><span class="nav-text">比较</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#异或运算"><span class="nav-text">异或运算</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其他要说的话"><span class="nav-text">其他要说的话</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -869,6 +673,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
