@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-11-20T10:23:56.731Z</updated>
+  <updated>2018-11-26T10:13:47.843Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>莫烦PyTorch学习笔记一</title>
+    <link href="http://yoursite.com/2018/11/26/PyTorch%20learning%201/"/>
+    <id>http://yoursite.com/2018/11/26/PyTorch learning 1/</id>
+    <published>2018-11-26T10:01:04.711Z</published>
+    <updated>2018-11-26T10:13:47.843Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="NumPy-Vs-Torch"><a href="#NumPy-Vs-Torch" class="headerlink" title="NumPy Vs. Torch"></a>NumPy Vs. Torch</h2><a id="more"></a><h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><p>给定一个链表: 1-&gt;2-&gt;3-&gt;4-&gt;5, 和 n = 2.<br>当删除了倒数第二个节点后，链表变为 1-&gt;2-&gt;3-&gt;5.</p><h3 id="数据比较"><a href="#数据比较" class="headerlink" title="数据比较"></a>数据比较</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">import torch</span><br><span class="line">import numpy as np</span><br><span class="line"></span><br><span class="line">np_data = np.arange(6).reshape((2,3))</span><br><span class="line">torch_data = torch.from_numpy(np_data)</span><br><span class="line">tensor2array = torch_data.numpy()</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(</span><br><span class="line">    <span class="string">'\nnumpy'</span>, np_data, </span><br><span class="line">    <span class="string">'\ntorch'</span>, torch_data,</span><br><span class="line">    <span class="string">'\ntensor2array'</span>, tensor2array</span><br><span class="line">)</span><br></pre></td></tr></table></figure><p>输出结果：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">numpy [[0 1 2]</span><br><span class="line"> [3 4 5]]</span><br><span class="line"></span><br><span class="line">torch tensor([[0, 1, 2],</span><br><span class="line">        [3, 4, 5]], dtype=torch.int32)</span><br></pre></td></tr></table></figure></p><h3 id="dot函数区别"><a href="#dot函数区别" class="headerlink" title="dot函数区别"></a>dot函数区别</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">import torch</span><br><span class="line">import numpy as np</span><br><span class="line"></span><br><span class="line">data = [[1,2], [3,4]]</span><br><span class="line">tensor = torch.FloatTensor(data)</span><br><span class="line">data2 = np.array(data)</span><br><span class="line">tensor2 = torch.FloatTensor([1,2,3,4])</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(</span><br><span class="line">    <span class="string">'\nnumpy:'</span>, np.matmul(data, data),</span><br><span class="line">    <span class="string">'\ntorch:'</span>, torch.mm(tensor, tensor),</span><br><span class="line">    <span class="string">'\nnumpy2:'</span>, data2.dot(data2),</span><br><span class="line">    <span class="string">'\ntorch2:'</span>, tensor2.dot(tensor2)</span><br><span class="line">)</span><br></pre></td></tr></table></figure><p>输出结果：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">numpy: [[ 7 10]</span><br><span class="line"> [15 22]]</span><br><span class="line">torch: tensor([[ 7., 10.],</span><br><span class="line">        [15., 22.]])</span><br><span class="line">numpy2: [[ 7 10]</span><br><span class="line"> [15 22]]</span><br><span class="line">torch2: tensor(30.)</span><br></pre></td></tr></table></figure></p><p>注意：<br>这里按照视频里的tensor.dot(tensor)会报错。<br>RuntimeError: dot: Expected 1-D argument self, but got 2-D<br>意思是说dot()的参数需求是一维矩阵，但是你传了一个二维矩阵，所以这里要把tensor改成一维的，<br>主要是看torch和numpy的dot()结果区别，所以我就直接搞了个tensor2变量了。<br>可以看出，numpy的dot()与matmul()结果是相同的，而torch的dot()y与mm()函数结果是不同的，<br>因为torch会将其转换成 [1,2,3,4].dot([1,2,3,4]) = 30.0，当然我们从上面报的错误就可以看出来这点了。</p><h3 id="其他的方法"><a href="#其他的方法" class="headerlink" title="其他的方法"></a>其他的方法</h3><p>我现在在学python嘛，然后写完题目会看看其他人的答案。解决的方法真的是多种多样的。<br>我印象很深的一个方法，是一次遍历，将链表的值存入一个列表中，然后利用列表的pop(-n)<br>弹出需要删除的那个数，真的是秀到我了，虽然说有点投机取巧的意味，因为题目最后是要求<br>返回头结点嘛，但是他输出结果是个列表。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;NumPy-Vs-Torch&quot;&gt;&lt;a href=&quot;#NumPy-Vs-Torch&quot; class=&quot;headerlink&quot; title=&quot;NumPy Vs. Torch&quot;&gt;&lt;/a&gt;NumPy Vs. Torch&lt;/h2&gt;
+    
+    </summary>
+    
+      <category term="莫烦PyTorch" scheme="http://yoursite.com/categories/%E8%8E%AB%E7%83%A6PyTorch/"/>
+    
+    
+      <category term="PyTorch" scheme="http://yoursite.com/tags/PyTorch/"/>
+    
+  </entry>
   
   <entry>
     <title>搜索插入位置</title>

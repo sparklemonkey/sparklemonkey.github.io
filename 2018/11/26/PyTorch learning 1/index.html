@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="PyTorch,">
 
 
 
@@ -86,16 +86,18 @@
 
 
 
-<meta name="description" content="一个自学python的菜鸡">
-<meta property="og:type" content="website">
-<meta property="og:title" content="神秘の博客">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta name="description" content="NumPy Vs. Torch">
+<meta name="keywords" content="PyTorch">
+<meta property="og:type" content="article">
+<meta property="og:title" content="莫烦PyTorch学习笔记一">
+<meta property="og:url" content="http://yoursite.com/2018/11/26/PyTorch learning 1/index.html">
 <meta property="og:site_name" content="神秘の博客">
-<meta property="og:description" content="一个自学python的菜鸡">
+<meta property="og:description" content="NumPy Vs. Torch">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-11-26T10:13:47.843Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="神秘の博客">
-<meta name="twitter:description" content="一个自学python的菜鸡">
+<meta name="twitter:title" content="莫烦PyTorch学习笔记一">
+<meta name="twitter:description" content="NumPy Vs. Torch">
 
 
 
@@ -125,13 +127,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/">
+  <link rel="canonical" href="http://yoursite.com/2018/11/26/PyTorch learning 1/">
 
 
 
 
 
-  <title>神秘の博客</title>
+  <title>莫烦PyTorch学习笔记一 | 神秘の博客</title>
   
 
 
@@ -150,8 +152,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
@@ -254,9 +255,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -286,9 +287,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/11/26/PyTorch learning 1/" itemprop="url">莫烦PyTorch学习笔记一</a></h1>
+          <h1 class="post-title" itemprop="name headline">莫烦PyTorch学习笔记一</h1>
         
 
         <div class="post-meta">
@@ -360,16 +359,15 @@
       
 
       
-        
-          <h2 id="NumPy-Vs-Torch"><a href="#NumPy-Vs-Torch" class="headerlink" title="NumPy Vs. Torch"></a>NumPy Vs. Torch</h2>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/11/26/PyTorch learning 1/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
+        <h2 id="NumPy-Vs-Torch"><a href="#NumPy-Vs-Torch" class="headerlink" title="NumPy Vs. Torch"></a>NumPy Vs. Torch</h2><a id="more"></a>
+<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><p>给定一个链表: 1-&gt;2-&gt;3-&gt;4-&gt;5, 和 n = 2.<br>当删除了倒数第二个节点后，链表变为 1-&gt;2-&gt;3-&gt;5.</p>
+<h3 id="数据比较"><a href="#数据比较" class="headerlink" title="数据比较"></a>数据比较</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">import torch</span><br><span class="line">import numpy as np</span><br><span class="line"></span><br><span class="line">np_data = np.arange(6).reshape((2,3))</span><br><span class="line">torch_data = torch.from_numpy(np_data)</span><br><span class="line">tensor2array = torch_data.numpy()</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(</span><br><span class="line">    <span class="string">'\nnumpy'</span>, np_data, </span><br><span class="line">    <span class="string">'\ntorch'</span>, torch_data,</span><br><span class="line">    <span class="string">'\ntensor2array'</span>, tensor2array</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<p>输出结果：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">numpy [[0 1 2]</span><br><span class="line"> [3 4 5]]</span><br><span class="line"></span><br><span class="line">torch tensor([[0, 1, 2],</span><br><span class="line">        [3, 4, 5]], dtype=torch.int32)</span><br></pre></td></tr></table></figure></p>
+<h3 id="dot函数区别"><a href="#dot函数区别" class="headerlink" title="dot函数区别"></a>dot函数区别</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">import torch</span><br><span class="line">import numpy as np</span><br><span class="line"></span><br><span class="line">data = [[1,2], [3,4]]</span><br><span class="line">tensor = torch.FloatTensor(data)</span><br><span class="line">data2 = np.array(data)</span><br><span class="line">tensor2 = torch.FloatTensor([1,2,3,4])</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(</span><br><span class="line">    <span class="string">'\nnumpy:'</span>, np.matmul(data, data),</span><br><span class="line">    <span class="string">'\ntorch:'</span>, torch.mm(tensor, tensor),</span><br><span class="line">    <span class="string">'\nnumpy2:'</span>, data2.dot(data2),</span><br><span class="line">    <span class="string">'\ntorch2:'</span>, tensor2.dot(tensor2)</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<p>输出结果：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">numpy: [[ 7 10]</span><br><span class="line"> [15 22]]</span><br><span class="line">torch: tensor([[ 7., 10.],</span><br><span class="line">        [15., 22.]])</span><br><span class="line">numpy2: [[ 7 10]</span><br><span class="line"> [15 22]]</span><br><span class="line">torch2: tensor(30.)</span><br></pre></td></tr></table></figure></p>
+<p>注意：<br>这里按照视频里的tensor.dot(tensor)会报错。<br>RuntimeError: dot: Expected 1-D argument self, but got 2-D<br>意思是说dot()的参数需求是一维矩阵，但是你传了一个二维矩阵，所以这里要把tensor改成一维的，<br>主要是看torch和numpy的dot()结果区别，所以我就直接搞了个tensor2变量了。<br>可以看出，numpy的dot()与matmul()结果是相同的，而torch的dot()y与mm()函数结果是不同的，<br>因为torch会将其转换成 [1,2,3,4].dot([1,2,3,4]) = 30.0，当然我们从上面报的错误就可以看出来这点了。</p>
+<h3 id="其他的方法"><a href="#其他的方法" class="headerlink" title="其他的方法"></a>其他的方法</h3><p>我现在在学python嘛，然后写完题目会看看其他人的答案。解决的方法真的是多种多样的。<br>我印象很深的一个方法，是一次遍历，将链表的值存入一个列表中，然后利用列表的pop(-n)<br>弹出需要删除的那个数，真的是秀到我了，虽然说有点投机取巧的意味，因为题目最后是要求<br>返回头结点嘛，但是他输出结果是个列表。</p>
+
       
     </div>
     
@@ -384,262 +382,36 @@
 
     <footer class="post-footer">
       
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/20/LeetCode 35 Search Insert Position/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="SparkleMonkey">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="神秘の博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/11/20/LeetCode 35 Search Insert Position/" itemprop="url">搜索插入位置</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-20T09:59:24+08:00">
-                2018-11-20
-              </time>
-            
-
-            
-
-            
-          </span>
-
+        <div class="post-tags">
           
-
+            <a href="/tags/PyTorch/" rel="tag"><i class="fa fa-tag"></i> PyTorch</a>
           
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
         </div>
-      </header>
-    
+      
 
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
+      
       
       
 
       
-        
-          <h2 id="【leetcode-35】-搜索插入位置"><a href="#【leetcode-35】-搜索插入位置" class="headerlink" title="【leetcode 35】 搜索插入位置"></a>【leetcode 35】 搜索插入位置</h2><p>给定一个排序数组和一个目标值，在数组中找到目标值，并返回其索引。如果目标值不存在于数组中，返回它将会被按顺序插入的位置。<br>你可以假设数组中无重复元素。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/11/20/LeetCode 35 Search Insert Position/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/11/20/LeetCode 35 Search Insert Position/" rel="next" title="搜索插入位置">
+                <i class="fa fa-chevron-left"></i> 搜索插入位置
+              </a>
+            
           </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
 
-    
+          <span class="post-nav-divider"></span>
 
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/16/LeetCode 540 Single Element in a Sorted Array/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="SparkleMonkey">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="神秘の博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/11/16/LeetCode 540 Single Element in a Sorted Array/" itemprop="url">有序数组中的单一元素</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+          <div class="post-nav-prev post-nav-item">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-16T16:54:47+08:00">
-                2018-11-16
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          <h2 id="【leetcode-540】-有序数组中的单一元素"><a href="#【leetcode-540】-有序数组中的单一元素" class="headerlink" title="【leetcode 540】 有序数组中的单一元素"></a>【leetcode 540】 有序数组中的单一元素</h2><p>给定一个只包含整数的有序数组，每个元素都会出现两次，唯有一个数只会出现一次，找出这个数。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/11/16/LeetCode 540 Single Element in a Sorted Array/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -649,258 +421,11 @@
   </article>
 
 
-    
-      
 
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/13/LeetCode 19 Remove Nth Node From End of List/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="SparkleMonkey">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="神秘の博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/11/13/LeetCode 19 Remove Nth Node From End of List/" itemprop="url">删除链表的倒数第N个节点</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-13T14:36:16+08:00">
-                2018-11-13
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="【leetcode-19】-删除链表的倒数第N个节点"><a href="#【leetcode-19】-删除链表的倒数第N个节点" class="headerlink" title="【leetcode 19】 删除链表的倒数第N个节点"></a>【leetcode 19】 删除链表的倒数第N个节点</h2><p>给定一个链表，删除链表的倒数第 n 个节点，并且返回链表的头结点。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/11/13/LeetCode 19 Remove Nth Node From End of List/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
+    <div class="post-spread">
       
     </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
   </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/13/hello-world/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="SparkleMonkey">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="神秘の博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/11/13/hello-world/" itemprop="url">Hello World</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-13T11:43:13+08:00">
-                2018-11-13
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/11/13/hello-world/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-  </section>
-
-  
 
 
           </div>
@@ -908,6 +433,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -928,8 +457,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -1001,6 +539,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#NumPy-Vs-Torch"><span class="nav-text">NumPy Vs. Torch</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#示例"><span class="nav-text">示例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据比较"><span class="nav-text">数据比较</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#dot函数区别"><span class="nav-text">dot函数区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其他的方法"><span class="nav-text">其他的方法</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -1148,6 +702,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
